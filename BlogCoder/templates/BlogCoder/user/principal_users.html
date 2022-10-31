@@ -1,0 +1,11 @@
+    {% extends "BlogCoder/pagina_principal.html" %}
+
+    {% block content %}
+        <br><br>
+        <a href="{% url 'ListaUser'%}">Ver usuarios</a>
+        <br>
+        <a href="{% url 'AgregarAvatar'%}">Añadir avatar</a>
+        <br><br>
+        ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+
+    {% endblock %}

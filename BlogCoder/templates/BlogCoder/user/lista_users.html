@@ -1,0 +1,20 @@
+
+    {% extends "BlogCoder/pagina_principal.html" %}
+
+    {% block content %}
+    <h3>Lista de usuarios:</h3>
+    <ul>
+        {% for user in usuarios %}
+        <li>
+            <!--<p>{{user.first_name}} {{user.last_name}}</p>-->
+            <p>{{user.username}}</p>
+            <a href="{% url 'EditarPerfil' %}">Editar usuario</a>  
+            -
+            <a href="{% url 'UserDelete' user.id %}">Borrar usuario</a>
+        </li>
+        {% endfor %}
+        <br><br><br>
+        ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+    </ul>
+    
+    {% endblock %}

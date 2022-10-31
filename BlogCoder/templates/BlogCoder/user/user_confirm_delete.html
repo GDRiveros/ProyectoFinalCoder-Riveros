@@ -1,0 +1,10 @@
+    {% extends "BlogCoder/pagina_principal.html" %}
+
+    {% block content %}
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            Estás seguro de que querés borrar el usuario {{ object }}?:
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+    {% endblock%}

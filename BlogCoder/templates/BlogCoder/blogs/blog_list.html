@@ -1,0 +1,27 @@
+
+    {% extends "BlogCoder/pagina_principal.html "%}
+    
+    {% block content %}
+        <h2>Lista de Blogs</h2>
+
+        {% if object_list%}
+        <ul>
+            {% for blog in object_list %}
+            <li>
+                <p>Título: <i>{{blog.titulo}}</i> - Autor: <i>{{blog.autor}}</i></p>
+                <p>
+                    <a href="{% url 'BlogDetail' blog.id %}">Ver Más</a>
+                    <a href="{% url 'BlogUpdate' blog.id %}">Editar</a>
+                    <a href="{% url 'BlogDelete' blog.id %}">Borrar</a>
+                </p>
+            </li>
+
+            {% endfor %}
+        </ul> 
+
+        {% else %}
+            <h3>Lo sentimos, no hay blogs aún! :(</h3>
+        {% endif%}
+        <br><br>
+            ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+    {% endblock %}

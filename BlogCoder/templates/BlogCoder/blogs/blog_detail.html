@@ -1,0 +1,10 @@
+
+    {% extends "BlogCoder/pagina_principal.html "%}
+
+    {% block content %}
+    <p>Titulo: <i>{{blog.titulo}}</i></p>
+    <p>Subtitulo: <i>{{blog.subtitulo}}</i></p>
+    <p>Autor: <i>{{blog.autor}}</i></p>
+    <p>Texto: <i>{{blog.cuerpo}}</i></p>
+    <p>Fecha de publicación: <i>{{blog.fecha}}</i></p>
+    {% endblock %}

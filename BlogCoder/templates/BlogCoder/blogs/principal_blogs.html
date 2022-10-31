@@ -1,0 +1,11 @@
+    {% extends "BlogCoder/pagina_principal.html" %}
+
+    {% block content %}
+        <p>Eliga la opción que desea llevar a cabo:</p>
+        <a href="{% url 'BlogList'%}">Ver Blogs</a>
+        <br>
+        <a href="{% url 'BlogCreate'%}">Crear Blog</a>
+        <br>
+        ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+
+    {% endblock %}
