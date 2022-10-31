@@ -122,3 +122,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = "/blogcoder/inicio" #una vez que me logeo, me redirige a esa url (la del inicio en este caso)
+LOGIN_URL = "/blogcoder/accounts/login"  #si no estoy logeado, me manda a esa URL (la url del login en este caso)

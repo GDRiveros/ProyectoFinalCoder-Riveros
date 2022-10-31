@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    {% extends "BlogCoder/padre.html" %}
+    {% block contenido_padre %}
+
+        {% if user %}
+        <p>Usuario: {{user.username}}</p>
+        {% endif%}
+
+        <br>
+        <a href="{% url 'Blogs' %}">Blogs</a>
+        <br><br>
+        <a href="{% url 'Users' %}">Usuarios</a>
+        <br><br><br>
+        <a href="{% url 'Logout' %}">Cerrar Sesión</a>
+
+    {% endblock%}
+    
+</body>
+</html>

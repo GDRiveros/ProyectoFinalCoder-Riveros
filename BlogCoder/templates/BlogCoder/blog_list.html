@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista-Blogs</title>
+</head>
+<body>
+    {% extends "BlogCoder/padre.html"%}
+    {% block contenido_padre %}
+        <h2>Lista de Blogs</h2>
+        <ul>
+            {% for blog in object_list %}
+            <li>
+                <p>Título: <i>{{blog.titulo}}</i> - Autor: <i>{{blog.autor}}</i></p>
+                <p>
+                    <a href="{% url 'BlogDetail' blog.id %}">Ver Más</a>
+                    <a href="{% url 'BlogUpdate' blog.id %}">Editar</a>
+                    <a href="{% url 'BlogDelete' blog.id %}">Borrar</a>
+                </p>
+            </li>
+            {% endfor %}
+
+            ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+        </ul>
+    {% endblock %}
+</body>
+</html>
