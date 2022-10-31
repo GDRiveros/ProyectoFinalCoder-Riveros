@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>logout</title>
-</head>
-<body>
-    {% extends "BlogCoder/padre.html" %}
-    {% block contenido_padre %}
+
+    {% extends "BlogCoder/pagina_principal.html" %}
+
+    {% block content %}
         <h4>USUARIO DESLOGEADO</h4>
-        <br>
-        <p>Si desea volver a ingresar haga click en el siguiente link: <a href="{% url 'PaginaPrincipal' %}">Home</a> </p>
     {% endblock %}
-</body>
-</html>
