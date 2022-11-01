@@ -27,7 +27,7 @@ def mostrar_inicio(request):
     #     contexto = {"avatar": avatar.imagen.url}
     # else:
     #     contexto = {}
-    return render(request, "BlogCoder/inicio.html", contexto)
+    return render(request, "BlogCoder/inicio.html")
 
 @login_required
 def vista_principal_de_blogs(request):
@@ -149,3 +149,6 @@ def agregar_avatar_al_user(request):
 
         contexto = {"form": form}
         return render(request, "BlogCoder/avatars/avatar_form.html", contexto)
+
+def contar_sobre_mi(request):
+    return render(request, "BlogCoder/about_me.html")
