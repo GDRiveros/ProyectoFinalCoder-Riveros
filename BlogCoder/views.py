@@ -62,7 +62,8 @@ class BlogDelete(LoginRequiredMixin, DeleteView):
 class BlogCreate(LoginRequiredMixin, CreateView):
     model = Blog
     fields = ["titulo", "subtitulo", "autor", "cuerpo", "fecha"]
-    success_url = "/blogcoder/blog-list"
+    success_url = "/blogcoder/pages"
+    template_name = "BlogCoder/blogs/blog_form.html"
 
 def register(request):
     if request.method == "POST": 
