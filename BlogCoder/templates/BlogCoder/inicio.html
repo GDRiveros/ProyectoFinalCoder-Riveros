@@ -1,19 +1,18 @@
 
-    {% extends "BlogCoder/pagina_principal.html "%}
+    {% extends "BlogCoder/pagina_principal.html" %}
 
     {% block content %}
 
-        {% if user.is_autheticated %}
-            {% if avatar %}
-            <img height="40px" src="{{ avatar }}"/>
-            {% endif %}
+        
+        {% if avatar %}
+        <img height="40px" src="{{ avatar }}"/>
+        {% endif %}
                 <!-- {if avatar }
                     <img height= "40px" src='{{ avatar.imagen.url }}' alt="">
                 { endif } -->
-            <br>
-            <p>Bienvenido: {{user.username}}</p>
+        <br>
+        <p>Bienvenido: {{user.username}}</p>
             
-        {% endif %}
 
         <!-- {% if avatar %}
             <img height="40px" src="{{ avatar }}"/>
