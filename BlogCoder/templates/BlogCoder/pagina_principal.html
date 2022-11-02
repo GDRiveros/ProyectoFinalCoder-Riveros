@@ -11,7 +11,7 @@
 
     {% if not request.user.is_authenticated %}
     <a href="{% url 'Register' %}">Registrarse</a>
-    <br><br>
+    <br>
     <a href="{% url 'Login' %}">Login</a>
     {% endif %}
 
@@ -19,7 +19,7 @@
     {% if request.user.is_authenticated %}
     <a href="{% url 'Logout' %}">Cerrar Sesión</a>
     {% endif %}
-
+    <br><br>
     {% block content %}
     {% endblock %}
 </body>

@@ -17,17 +17,20 @@ def mostrar_pagina_principal(request):
 
 @login_required
 def mostrar_inicio(request):
-    try:
-        avatar = Avatar.objects.get(user=request.user)
-    except:
-        avatar = None
-    contexto = {"avatar": avatar}
-    # avatar = Avatar.objects.get(user=request.user)
-    # if avatar is not None:
-    #     contexto = {"avatar": avatar.imagen.url}
-    # else:
-    #     contexto = {}
-    return render(request, "BlogCoder/inicio.html")
+
+    avatar = Avatar.objects.filter(user=request.user).first()
+    if avatar is not None:
+        contexto = {"avatar": avatar.imagen.url}
+    else:
+        contexto = {}
+    return render(request, "BlogCoder/inicio.html", contexto)
+    
+    # try:
+    #     avatar = Avatar.objects.get(user=request.user)
+    # except:
+    #     avatar = None
+    # return render(request, "BlogCoder/inicio.html", {"avatar": avatar})
+
 
 @login_required
 def vista_principal_de_blogs(request):
@@ -136,7 +139,7 @@ class BorrarUser(LoginRequiredMixin, DeleteView):
     def get_success_url(self): 
         return reverse("ListaUser")
 
-@login_required
+
 def agregar_avatar_al_user(request):
         if request.method != "POST":
             form = AvatarForm()

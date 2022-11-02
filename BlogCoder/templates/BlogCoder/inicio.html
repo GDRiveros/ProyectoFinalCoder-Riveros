@@ -2,15 +2,27 @@
     {% extends "BlogCoder/pagina_principal.html "%}
 
     {% block content %}
-    
-        {% if avatar %}
-            <img height= "40px" src="{{user.avatar.imagen.url}}" alt="">
+
+        {% if user.is_autheticated %}
+            {% if avatar %}
+            <img height="40px" src="{{ avatar }}"/>
+            {% endif %}
+                <!-- {if avatar }
+                    <img height= "40px" src='{{ avatar.imagen.url }}' alt="">
+                { endif } -->
+            <br>
+            <p>Bienvenido: {{user.username}}</p>
+            
         {% endif %}
 
+        <!-- {% if avatar %}
+            <img height="40px" src="{{ avatar }}"/>
+        {% endif %}
 
-        {% if user %}
-        <p>Bienvenido: {{user.username}}</p>
-        {% endif%}
+        {% if user.is_authenticated %}
+            Bienvenido: {{user.username}}
+        {% endif %} -->
+
 
         <br>
         <a href="{% url 'Blogs' %}">Blogs</a>
