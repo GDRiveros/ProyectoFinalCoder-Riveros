@@ -22,8 +22,16 @@ class ViewTestCase(TestCase):
 
 
 
-    # def test_tercero(self):
-    #     cantidad_de_blogs = Blog.objects.all()
-    #     assert len(cantidad_de_blogs) == 1
+    def test_tercero(self):
+        autor = Autor.objects.create(nombre="Oscar", apellido="Wilde")
+        Blog.objects.create(
+            autor = autor,
+            titulo = "El Retrato de Dorian Gray",
+            subtitulo = "Opiniones acerca de un libro excepcional",
+            cuerpo = "Hoy le contaré de....",
+        )
+
+        cantidad_de_blogs = Blog.objects.all()
+        assert len(cantidad_de_blogs) == 1
         
 
