@@ -1,0 +1,26 @@
+{% extends "BlogCoder/pagina_principal.html" %}
+    
+{% block content %}
+    <h2>Lista de Autores</h2>
+
+    {% if object_list%}
+    <ul>
+        {% for autor in object_list %}
+        <li>
+            <p>Nombre: <i>{{autor.nombre}}</i> - Apellido: <i>{{autor.apellido}}</i></p>
+            <p>
+                <a href="{% url 'AutorDetail' autor.id %}">Ver Más</a>
+                <a href="{% url 'AutorUpdate' autor.id %}">Editar</a>
+                <a href="{% url 'AutorDelete' autor.id %}">Borrar</a>
+            </p>
+        </li>
+
+        {% endfor %}
+    </ul> 
+
+    {% else %}
+        <h3>Lo sentimos, no hay autores aún! :(</h3>
+    {% endif%}
+    <br><br>
+        ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
+{% endblock %}

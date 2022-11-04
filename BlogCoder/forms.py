@@ -32,3 +32,7 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = Avatar
         fields = ["imagen", "user"]
+
+class AutorFormulario(forms.Form):
+    nombre = forms.CharField()
+    apellido = forms.CharField()

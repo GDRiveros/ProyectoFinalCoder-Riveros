@@ -1,0 +1,12 @@
+{% extends "BlogCoder/pagina_principal.html" %}
+
+{% block content %}
+
+<p>Nombre: <i>{{autor.nombre}}</i></p>
+<p>Apellido: <i>{{autor.apellido}}</i></p>
+
+<br><br>
+
+<a href="{% url 'AutorList' %}">Volver atrás</a>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from calendar import c
 from django.shortcuts import render
-from BlogCoder.models import Blog, Avatar
+from BlogCoder.models import Blog, Avatar, Autor
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -156,3 +156,32 @@ def agregar_avatar_al_user(request):
 
 def contar_sobre_mi(request):
     return render(request, "BlogCoder/about_me.html")
+
+class AutorCreate(CreateView):
+    model = Autor
+    fields = ["nombre", "apellido"]
+    success_url = "/blogcoder/ver-autores" 
+    template_name = "BlogCoder/autores/autor_form.html"
+
+class AutorUpdateView(UpdateView):
+    model = Autor
+    fields = ["nombre", "apellido"]
+    template_name = "BlogCoder/autores/autor_form.html"
+
+    def get_success_url(self): 
+        return reverse("AutorList") 
+
+class AutorDelete(DeleteView):
+    model = Autor
+    template_name = "BlogCoder/autores/autor_confirm_delete.html"
+
+    def get_success_url(self): 
+        return reverse("AutorList") 
+
+class AutorList(ListView):
+    model = Autor
+    template_name = "BlogCoder/autores/autor_list.html"
+
+class AutorDetail(DetailView):
+    model = Autor
+    template_name = "BlogCoder/autores/autor_detail.html"

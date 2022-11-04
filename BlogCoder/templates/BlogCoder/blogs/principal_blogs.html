@@ -1,11 +1,16 @@
     {% extends "BlogCoder/pagina_principal.html" %}
 
     {% block content %}
-        <p>Eliga la opción que desea llevar a cabo:</p>
+        <p>Eliga la opción que desea llevar a cabo: (Recuerda que antes de crear tu blog, debes seleccionar en "Crear Autor", si es que no quieres usar los existentes)</p> 
+    
         <a href="{% url 'BlogList'%}">Ver Blogs</a>
         <br>
         <a href="{% url 'BlogCreate'%}">Crear Blog</a>
         <br>
+        <a href="{% url 'CreacionAutor'%}">Crear Autor</a>
+        <br>
+        <a href="{% url 'AutorList'%}">Ver autores existentes</a>
+        <br><br>
         ---<a href="{% url 'Inicio' %}">volver al inicio</a> ---
 
     {% endblock %}

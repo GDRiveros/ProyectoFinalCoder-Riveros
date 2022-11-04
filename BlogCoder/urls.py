@@ -34,6 +34,11 @@ from BlogCoder.views import (
     agregar_avatar_al_user,
     BorrarUser,
     contar_sobre_mi,
+    AutorCreate,
+    AutorUpdateView,
+    AutorDelete,
+    AutorList,
+    AutorDetail,
 )
 
 urlpatterns = [
@@ -53,5 +58,10 @@ urlpatterns = [
     path("users/", vista_principal_de_users, name="Users"),
     path("delete-user/<pk>", BorrarUser.as_view(), name="UserDelete"),
     path("agregar-avatar/", agregar_avatar_al_user, name="AgregarAvatar"),
-    path("about/", contar_sobre_mi)
+    path("about/", contar_sobre_mi),
+    path("crear-autor/", AutorCreate.as_view(), name="CreacionAutor"),
+    path("editar-autor/<pk>", AutorUpdateView.as_view(), name="AutorUpdate"),
+    path("borrar-autor/<pk>", AutorDelete.as_view(), name="AutorDelete"),
+    path("ver-autores/", AutorList.as_view(), name="AutorList"),
+    path("autor-detalle/<pk>'", AutorDetail.as_view(), name="AutorDetail"),
 ]
