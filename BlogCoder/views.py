@@ -140,7 +140,7 @@ class BorrarUser(LoginRequiredMixin, DeleteView):
     def get_success_url(self): 
         return reverse("ListaUser")
 
-
+@login_required
 def agregar_avatar_al_user(request):
         if request.method != "POST":
             form = AvatarForm()
@@ -157,13 +157,13 @@ def agregar_avatar_al_user(request):
 def contar_sobre_mi(request):
     return render(request, "BlogCoder/about_me.html")
 
-class AutorCreate(CreateView):
+class AutorCreate(LoginRequiredMixin, CreateView):
     model = Autor
     fields = ["nombre", "apellido"]
     success_url = "/blogcoder/ver-autores" 
     template_name = "BlogCoder/autores/autor_form.html"
 
-class AutorUpdateView(UpdateView):
+class AutorUpdateView(LoginRequiredMixin, UpdateView):
     model = Autor
     fields = ["nombre", "apellido"]
     template_name = "BlogCoder/autores/autor_form.html"
@@ -171,17 +171,17 @@ class AutorUpdateView(UpdateView):
     def get_success_url(self): 
         return reverse("AutorList") 
 
-class AutorDelete(DeleteView):
+class AutorDelete(LoginRequiredMixin, DeleteView):
     model = Autor
     template_name = "BlogCoder/autores/autor_confirm_delete.html"
 
     def get_success_url(self): 
         return reverse("AutorList") 
 
-class AutorList(ListView):
+class AutorList(LoginRequiredMixin, ListView):
     model = Autor
     template_name = "BlogCoder/autores/autor_list.html"
 
-class AutorDetail(DetailView):
+class AutorDetail(LoginRequiredMixin, DetailView):
     model = Autor
     template_name = "BlogCoder/autores/autor_detail.html"
